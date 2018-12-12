@@ -1,5 +1,6 @@
 package com.djl.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 //Entity 中name 对应数据库表名称
 @Entity(name="business")
-public class Business {
+public class Business implements Serializable {
     @Id//对应列主键
     @GeneratedValue//自动增加
     private Integer id;

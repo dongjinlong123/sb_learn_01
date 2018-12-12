@@ -7,6 +7,8 @@ import com.djl.mapper.BusinessMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -47,6 +49,7 @@ public class TestJdbcTemplateService {
      * 通过名字查询信息
      * @return
      */
+    //@Cacheable(value="djlvalue", key="'djlkey'")
     public Business findByName(String name){
         Business b = businessMapper.findByName(name);
         return b;
@@ -66,5 +69,10 @@ public class TestJdbcTemplateService {
         business.setNum("1");
         businessMapper.insertBook(business);
         int i=  1/0;
+    }
+    //@CacheEvict(value = "djlvalue", key = "'djlkey'")
+    public void deleteCache(){
+        //businessMapper.delete(name);
+        System.out.println("刪除緩存");
     }
 }
