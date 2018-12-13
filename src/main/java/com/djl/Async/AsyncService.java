@@ -13,6 +13,7 @@ public class AsyncService {
     public void test(){
         try {
             Thread.sleep(1000);
+            System.out.println(123);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
